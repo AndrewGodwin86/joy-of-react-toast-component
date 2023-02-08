@@ -1,7 +1,13 @@
 import React from "react";
 
-function ToastProvider() {
-  return <div />;
+export const ToastContext = React.createContext();
+
+function ToastProvider({ children }) {
+  const [toasts, setToasts] = React.useState([]);
+
+  return (
+    <ToastContext.Provider value={{ toasts }}>{children}</ToastContext.Provider>
+  );
 }
 
 export default ToastProvider;
